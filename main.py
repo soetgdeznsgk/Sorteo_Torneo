@@ -6,8 +6,8 @@ import random, time, sys#, pruebas.py
 
 #"""
 
-fError = "\033[1m" + "\033[31m"
-fExito = "\033[1m" + "\033[32m"
+fError = "\033[1m" + "\033[31m"       # Imprime rojo y en negrilla el texto
+fExito = "\033[1m" + "\033[32m"       # Imprime verde y en negrilla el texto
 
 def  sorteoEquipos(nEquipos: int, nJugadores: int) -> list:
   
@@ -24,7 +24,7 @@ def  sorteoEquipos(nEquipos: int, nJugadores: int) -> list:
 
   print('\033[33m' + "Procesando equipos", end="") 
   
-  for i in range(0, int(nJugadores)):      #  Éste bucle solo imprime bonito los puntos xD
+  for i in range(0, int(nJugadores)):      #  Éste bucle solo imprime bonito los puntos xD, puntos de visaje, no?
     print("." + ('\033[%dm' %(random.randint(31, 35))), end="")
     sys.stdout.flush()
     time.sleep(0.5)
@@ -45,7 +45,9 @@ def  sorteoEquipos(nEquipos: int, nJugadores: int) -> list:
 #"""
 
 #  Ésta segunda función recibe la lista de equipos y los enfrenta y elimina el perdedor hasta que sólo haya 1 equipo en la lista
+
 #"""
+
 def  sorteoTorneo(lEquipos: list):
   
   if len(lEquipos) % 4 != 0:
@@ -68,6 +70,8 @@ def  sorteoTorneo(lEquipos: list):
         
   except:
     print(fExito + "El equipo ganador es %s!, Felicitaciones!" % lEquipos[0])
+    
 #"""
-equipos = sorteoEquipos(4, 4)
+
+equipos = sorteoEquipos(4, 4)     # El número de la izquierda es la cantidad de equipos, el de la derecha es la cantidad de jugadores
 sorteoTorneo(equipos)
